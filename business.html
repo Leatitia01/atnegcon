@@ -37,7 +37,70 @@
             .navbar-brand-center { width: 16%; display: flex; justify-content: center; position: relative; }
             .logo-container { position: absolute; top: -30px; animation: logo-glow 3s infinite ease-in-out; }
         }
+/* 1. The Main Button */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 20px;
+    left: 20px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 35px;
+    box-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    
+    /* Apply a shake animation every 5 seconds */
+    animation: whatsapp-shake 5s infinite;
+}
 
+/* 2. The Pulse Effect (The ripple behind the button) */
+.whatsapp-float::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #25d366;
+    border-radius: 50px;
+    z-index: -1;
+    animation: whatsapp-pulse 2s infinite;
+}
+
+/* --- KEYFRAMES --- */
+
+/* Pulse Animation: Creates the expanding ring */
+@keyframes whatsapp-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1.6);
+        opacity: 0;
+    }
+}
+
+/* Shake Animation: Makes the icon tilt back and forth slightly */
+@keyframes whatsapp-shake {
+    0%, 80%, 100% { transform: rotate(0deg); }
+    85% { transform: rotate(10deg); }
+    90% { transform: rotate(-10deg); }
+    95% { transform: rotate(10deg); }
+}
+
+/* Hover Effect: Stops shake and grows slightly when mouse is over it */
+.whatsapp-float:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+    animation: none; /* Stops shaking on hover */
+    transition: 0.3s;
+}
         @keyframes logo-glow { 0%, 100% { box-shadow: 0 0 10px var(--brand-secondary); } 50% { box-shadow: 0 0 25px var(--brand-secondary); } }
 
         /* --- CUSTOM TRANSLATOR STYLING --- */
@@ -101,7 +164,9 @@
                     <img src="8769bb1d-ce11-4522-81ee-21a376e2b7f4.jpg" alt="ATOM">
                 </a>
             </div>
-
+                <a href="https://wa.me/237652212955" class="whatsapp-float" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
             <div class="collapse navbar-collapse text-center" id="navContent">
                 <ul class="navbar-nav nav-left mt-3 mt-lg-0">
                     <li class="nav-item"><a class="nav-link text-white fw-bold px-3" href="index.html">HOME</a></li>
@@ -199,7 +264,7 @@
                     <div class="col-md-6 border-start ps-lg-5">
                         <h4 class="fw-bold text-primary mb-4">Headquarters</h4>
                         <p><i class="fas fa-map-marker-alt text-secondary me-2"></i> Poste Centrale, Opposite Camtel Building, Yaoundé</p>
-                        <p><i class="fas fa-envelope text-secondary me-2"></i> courriel@atnegco.com</p>
+                        <p><i class="fas fa-envelope text-secondary me-2"></i>  courriel@atom-negoce.com</p>
                     </div>
                 </div>
             </div>
@@ -208,7 +273,7 @@
 
     <footer class="text-center">
         <div class="container">
-            <p class="mb-0">© 2026 ATOM Negoce & Consulting | Empowering Global Trade</p>
+            <p class="mb-0">© 2009 ATOM Negoce & Consulting | Empowering Global Trade</p>
         </div>
     </footer>
 
